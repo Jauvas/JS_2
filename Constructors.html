@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors</title>
+</head>
+<body>
+    
+
+    <script>
+        function Car(make, model, year, color){
+            this.make = make,
+            this.model = model,
+            this.year = year,
+            this.color = color,
+            this.drive = function(){
+                console.log(`I drive a ${this.color} ${this.year} ${this.make} ${this.model}`);
+            }
+        }
+
+        const car1 = new Car('Toyota','Mark X','2008','Grey');
+        const car2 = new Car('VW','Toureg','2021','white');
+        const car3 = new Car('BMW','330i','2021','white');
+
+        car1.drive();
+        car2.drive();
+        car3.drive();
+    </script>
+</body>
+</html>

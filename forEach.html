@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForEach, Map, Filter, reduce Methods</title>
+</head>
+<body>
+    <p id="list"></p>
+
+    <script>
+        let names = ['Aaron','Cathie','Lynette','Nicole'];
+        let numbers = [1,2,3,4,5];
+        names.forEach(display);
+        numbers.forEach(double);
+        numbers.forEach(square);
+        numbers.forEach(display);
+
+        function display(element){
+            console.log(element);
+        }
+
+        function double(element, index, array){
+            array[index]=element*2;
+        }
+
+        function square(element, index, array){
+            array[index]= Math.pow(element,2);
+        }
+
+        /* 
+        the function below converts the first letter to uppercase
+        function capitalize(element, index, array){
+            array[index] = element.charAt(0).toupperCase();
+        }
+        */
+
+
+
+        //map() method
+        //to rearrange the given date using the map method
+        const dates = ['2001-1-14','2002-8-31','2006-2-14'];
+        const formattedDate = dates.map(formatDate);
+        console.log(formattedDate);
+
+        function formatDate(element){
+            const parts = element.split('-');
+            return `${parts[2]}/${parts[1]}/${parts[0]}}`;
+        }
+
+
+
+
+        //filter() method
+        let digits =[1,2,3,4,5,6,7,8,9,10];
+        let even = digits.filter(isEven);
+        let odd = digits.filter(isOdd);
+
+        console.log(even);
+        console.log(odd);
+        
+        function isEven(element){
+            return element % 2 === 0;
+        }
+
+        function isOdd(element){
+            return element % 2 !== 0;
+        }
+
+
+
+
+        //reduce() method
+        const price = [1000, 34000,4300,15000,2000];
+        const total = price.reduce(sum);
+        const max = price.reduce(getMax);
+        console.log(`UGX ${total}`);
+        console.log(`Max is: UGX ${max}`);
+
+        function sum(previous, next){
+            return previous + next;
+        }
+
+        function getMax(previous, next){
+            return Math.max(previous, next);
+        }
+    </script>
+</body>
+
+</html>

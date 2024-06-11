@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duper Keyword</title>
+</head>
+<body>
+    
+
+    <script>
+        class Animal{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        class Rabbit extends Animal{
+            constructor(name,age,runspeed){
+                super(name, age);
+                this.runspeed = runspeed;
+            }
+        }
+
+        class Fish extends Animal{
+            constructor(name,age,swimmspeed){
+                super(name, age);
+                this.swimmspeed = swimmspeed;
+            }
+        }
+
+        class Eagle extends Animal{
+            constructor(name,age,flyspeed){
+                super(name, age);
+                this.flyspeed = flyspeed;
+            }
+        }
+
+        const rabbit = new Rabbit('rabbit', 1, 25);
+        const fish = new Fish('fish', 2, 30);
+        const eagle = new Eagle('eagle', 3, 50);
+
+        console.log(rabbit.name);
+        console.log(rabbit.age);
+        console.log(rabbit.runspeed);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Keyword</title>
+</head>
+<body>
+    
+
+    <script>
+       class User{
+        static userCount = 0;
+        constructor(username){
+            this.username = username;
+            User.userCount++;
+        }
+
+        static getUserCount(){
+            console.log(`${User.userCount} users online`)
+        }
+
+        sayHello(){
+            console.log(`Hello my username is ${this.username}`);
+        }
+       }
+
+       const user1 = new User('Jay');
+       const user2 = new User('Cathy');
+       const user3 = new User('Lynnette');
+
+       user1.sayHello();
+       user2.sayHello();
+       user3.sayHello();
+
+       User.getUserCount();
+    </script>
+</body>
+</html>

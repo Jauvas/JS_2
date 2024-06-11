@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions & This Keyword</title>
+</head>
+<body>
+    
+
+    <script>
+        const hello = (name) => console.log(`Hello ${name} this is an arrow function`);
+
+        hello('Aaron');
+
+
+        //this() method
+        const person1 = {
+            name: 'Cathy',
+            favFood: 'Fries',
+            sayHello: function(){console.log(`hi! I am ${this.name}`)},
+            eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+        }
+
+        const person2 = {
+            name: 'Lynette',
+            favFood: 'rice',
+            sayHello: function(){console.log(`hi! I am ${this.name}`)},
+            eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+        }
+
+        person1.eat();
+        person2.eat();
+
+    </script>
+</body>
+</html>
