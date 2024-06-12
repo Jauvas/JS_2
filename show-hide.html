@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Show & Hide</title>
+    <style>
+        #button{
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <button id="button">Hide</button><br>
+    <img id="img" src="jay.jpg" alt="jay" width="480px">
+   
+    <script>
+        const button = document.getElementById('button');
+        const img = document.getElementById('img');
+
+        button.addEventListener('click', event => {
+            if(img.style.visibility === 'hidden'){
+                img.style.visibility = 'visible';
+                button.textContent = 'Hide'
+            }
+            else{
+                img.style.visibility = 'hidden';
+                button.textContent = 'Show';
+            }
+
+            
+        });
+    </script>
+</body>
+</html>

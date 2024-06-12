@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .slider{
+            position: relative;
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slides{
+            width: 40%;
+            margin: auto;
+        }
+
+        .slider img{
+            width: 100%;
+            display: none;
+        }
+
+        img.displaySlide{
+            display: block;
+            animation-name: fade;
+            animation-duration: 5s;
+        }
+
+        .slider button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            background-color: hsl(0, 0%, 0%, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        .prev{
+            left: 0;
+        }
+
+        .next{
+            right: 0;
+        }
+
+        @keyframes fade{
+            from{opacity: .1;}
+            to{opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <button class="prev" onclick="prevSlide()">&#10094</button>
+        <button class="next" onclick="nextSlide()">&#10095</button>
+        <div class="slides">
+            <img class="slide" src="/images/img1.jpg" alt="img1">
+            <img class="slide" src="/images/img2.jpg" alt="img2">
+            <img class="slide" src="/images/img3.jpg" alt="img3">
+            <img class="slide" src="/images/img4.jpg" alt="img4">
+            <img class="slide" src="/images/img5.jpg" alt="img5">
+            <img class="slide" src="/images/img6.jpg" alt="img6">
+            <img class="slide" src="/images/img7.jpg" alt="img7">
+        </div>
+        
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slides img');
+        let slideIndex = 0;
+        let intervalId = null;
+
+        //initializeSlider(); this loads the slider immediately
+        document.addEventListener('DOMContentLoaded', initializeSlider); //this loads after all DOM contents are loaded.
+
+        function initializeSlider(){
+            slides[slideIndex].classList.add('displaySlide');
+            intervalId = setInterval(nextSlide, 5000);
+        }
+
+        function replay(){
+            if(index >= slides.length){
+                slideIndex = 0;
+            }
+            else if(index < 0){
+                slideIndex = slides.length - 1;
+            }
+        }
+
+        function showSlide(){
+            //replay();
+            slides.forEach(slide => {
+                slide.classList.remove('displaySlide');
+            });
+            slides[slideIndex].classList.add('displaySlide');
+        }
+
+        function prevSlide(){
+            clearInterval(intervalId);
+            slideIndex--;
+            showSlide(slideIndex);
+        }
+
+        function nextSlide(){
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+    </script>
+</body>
+</html>
